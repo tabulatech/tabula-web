@@ -13,7 +13,7 @@ module.exports = Object.assign({
   apiBaseUrl: process.env.API_URL || 'https://api.github.com',
   app: {
     googleAnalytics: {
-      appId: process.env.GOOGLE_ANALYTIC_ID || 'UA-XXXXXXXX-X'
+      appId: process.env.GOOGLE_ANALYTIC_ID || 'UA-100956104-1'
     },
     title: 'React Universal Saga',
     description: 'Universal React Starter Kit ft. Redux Saga',
@@ -22,10 +22,10 @@ module.exports = Object.assign({
       meta: [
         { name: 'description', content: 'Universal React Starter Kit ft. Redux Saga' },
         { charset: 'utf-8' },
-        { property: 'og:site_name', content: 'React Universal Saga' },
+        { property: 'og:site_name', content: 'Tabula' },
         { property: 'og:image', content: 'https://facebook.github.io/react/img/logo_og.png' },
         { property: 'og:locale', content: 'en_US' },
-        { property: 'og:title', content: 'React Universal Saga' },
+        { property: 'og:title', content: 'Tabula' },
         { property: 'og:description', content: 'Universal React Starter Kit ft. Redux Saga' },
         { property: 'og:card', content: 'summary' },
         { property: 'og:site', content: '@xkawi' },

@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware, { END } from 'redux-saga';
+import { responsiveStoreEnhancer } from 'redux-responsive';
 import DevTools from 'containers/DevTools/DevTools';
 import rootReducer from '../reducers';
 
@@ -11,6 +12,7 @@ export default function configureStore(initialState) {
     rootReducer,
     initialState,
     compose(
+      responsiveStoreEnhancer,
       applyMiddleware(
         sagaMiddleware,
         createLogger()

@@ -2,6 +2,8 @@ import * as ActionTypes from '../actions';
 import merge from 'lodash/merge';
 import paginate from './paginate';
 import { combineReducers } from 'redux';
+import { i18nState } from 'redux-i18n';
+import { responsiveStateReducer } from 'redux-responsive';
 
 // Updates an entity cache in response to any action with response.entities.
 function entities(state = { users: {}, repos: {} }, action) {
@@ -58,7 +60,9 @@ const rootReducer = combineReducers({
   entities,
   pagination,
   errorMessage,
-  router
+  router,
+  i18nState,
+  browser: responsiveStateReducer,
 });
 
 export default rootReducer;

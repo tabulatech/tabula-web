@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { Explore } from 'components';
+import I18n from 'redux-i18n';
+import { About, SiteHeader } from 'components';
+import { translations } from 'lang';
 
 import {
   navigate,
@@ -43,27 +45,31 @@ class App extends Component {
   handleChange(nextValue) {
     this.props.navigate(`/${nextValue}`);
   }
-
   render() {
-    const { children, inputValue } = this.props;
+    // const { children, inputValue } = this.props;
+    const { children } = this.props;
     return (
-      <div className={styles.app}>
-        <Helmet
-          title="React Universal Saga"
-          meta={[{ property: 'og:site_name', content: 'React Universal Saga' }]}
-        />
-        <Explore value={inputValue} onChange={this.handleChange} />
-        <div className={styles.content}>
-          {children}
+      <I18n translations={translations} initialLang="en">
+        <div className={styles.app}>
+          <Helmet
+            title="Tabula"
+            meta={[{ property: 'og:site_name', content: 'Tabula' }]}
+          />
+          <SiteHeader />
+          <About />
+
+          <div className={styles.content}>
+            {children}
+          </div>
         </div>
-      </div>
+      </I18n>
       );
   }
 }
 
 App.propTypes = {
   errorMessage: PropTypes.string,
-  inputValue: PropTypes.string.isRequired,
+  // inputValue: PropTypes.string.isRequired,
   navigate: PropTypes.func.isRequired,
   updateRouterState: PropTypes.func.isRequired,
   resetErrorMessage: PropTypes.func.isRequired,
