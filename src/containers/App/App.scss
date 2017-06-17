@@ -2,10 +2,12 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
 .app {
+  position: relative;
+  padding-top: 84px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  margin: 10px 10px;
+  // margin: 10px 10px;
   .brand {
     position: absolute;
     $size: 40px;

@@ -4,3 +4,7 @@ export Team from './Team/Team';
 export SiteHeader from './SiteHeader/SiteHeader';
 export About from './About/About';
 export TokenSale from './TokenSale/TokenSale';
+export SiteFooter from './SiteFooter/SiteFooter';
+export Countdown from './Countdown/Countdown';
+export CallToAction from './CallToAction/CallToAction';
+export RegisterForm from './RegisterForm/RegisterForm';

@@ -1,7 +1,7 @@
 // import React, { Component, PropTypes } from 'react';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Team } from 'components';
+import { About, CallToAction, Countdown, RegisterForm, Team } from 'components';
 
 class MainPage extends Component {
 //   constructor(props) {
@@ -10,8 +10,12 @@ class MainPage extends Component {
 // <Team />
   render() {
     return (
-      <div>
-        Main page container
+      <div className="main">
+        <CallToAction />
+        <RegisterForm />
+        <About />
+        <Countdown />
+        <Team />
       </div>
     );
   }

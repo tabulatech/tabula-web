@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setLanguage } from 'redux-i18n';
 import styles from './SiteHeader.scss';
+import { Col, Grid, Row } from 'react-bootstrap';
 
 class SiteHeader extends Component {
   constructor(props) {
@@ -25,20 +26,24 @@ class SiteHeader extends Component {
   renderLarge() {
     return (
       <div className="row align-items-center">
-        <div className="col">
+        <Col>
           <a href="/" className={styles.logo} />
-          <a href="slack.com">
-            Slack
-          </a>
-        </div>
-        <div>
-          Twitter
-        </div>
-        <div>
-          Telegram
-        </div>
-        <div>
-          Github
+        </Col>
+        <div className="nav">
+          <div>
+            <a href="slack.com">
+              Slack
+            </a>
+          </div>
+          <div>
+            Twitter
+          </div>
+          <div>
+            Telegram
+          </div>
+          <div>
+            Github
+          </div>
         </div>
       </div>
     );
@@ -58,15 +63,15 @@ class SiteHeader extends Component {
     const { browser } = this.props;
     console.log('details: ', browser.lessThan);
 
-    let content;
+    // let content;
 
-    if (browser.lessThan.small) {
-      // hamburger
-      content = this.renderSmall();
-    } else {
-      content = this.renderLarge();
-    }
-
+    // if (browser.lessThan.small) {
+    //   // hamburger
+    //   content = this.renderSmall();
+    // } else {
+    //   content = this.renderLarge();
+    // }
+    // {content}
     // const isEmpty = items.length === 0;
     // if (isEmpty && isFetching) {
     //   return (<h2><i>{loadingLabel}</i></h2>);
@@ -77,16 +82,38 @@ class SiteHeader extends Component {
         // Slack
     return (
       <header>
-        <div className="container-fluid">
-          {content}
-          {this.context.t('welcome')}
+        <Grid fluid>
+          <Row>
+            <Col xs={10} md={8}>
+              <a href="/" className={styles.logo} />
+            </Col>
+            <Col xs={2} md={4}>
+              <div>
+                <a href="slack.com">
+                  Slack
+                </a>
+              </div>
+              <div>
+                Twitter
+              </div>
+              <div>
+                Telegram
+              </div>
+              <div>
+                Github
+              </div>
+            </Col>
+          </Row>
+          <Col>
+            {this.context.t('welcome')}
 
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="cn">Chinese</option>
-            <option value="en">English</option>
-            <option value="no">Norwegian</option>
-          </select>
-        </div>
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option value="cn">Chinese</option>
+              <option value="en">English</option>
+              <option value="no">Norwegian</option>
+            </select>
+          </Col>
+        </Grid>
       </header>
     );
   }

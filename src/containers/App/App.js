@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import I18n from 'redux-i18n';
-import { About, SiteHeader } from 'components';
+import { SiteFooter, SiteHeader } from 'components';
 import { translations } from 'lang';
 
 import {
@@ -56,11 +56,10 @@ class App extends Component {
             meta={[{ property: 'og:site_name', content: 'Tabula' }]}
           />
           <SiteHeader />
-          <About />
-
-          <div className={styles.content}>
+          <div>
             {children}
           </div>
+          <SiteFooter />
         </div>
       </I18n>
       );
