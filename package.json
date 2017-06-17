@@ -28,11 +28,11 @@
   ],
   "main": "bin/server.js",
   "scripts": {
-    "start": "better-npm-run start-prod",
+    "start": "cross-env NODE_ENV=production NODE_PATH=src PORT=8080 node ./bin/server.js",
     "build": "better-npm-run build",
     "postinstall": "npm run build",
     "lint": "eslint -c .eslintrc src",
-    "start-dev": "better-npm-run start-dev",
+    "start-dev": "cross-env NODE_ENV=development NODE_PATH=src PORT=3000 node ./bin/server.js",
     "watch-client": "better-npm-run watch-client",
     "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "test": "jest"
@@ -87,6 +87,7 @@
   "dependencies": {
     "anypixel": "^1.0.2",
     "compression": "^1.6.0",
+    "cross-env": "^5.0.1",
     "dot-object": "^1.5.4",
     "express": "^4.13.3",
     "express-http-proxy": "^0.11.0",

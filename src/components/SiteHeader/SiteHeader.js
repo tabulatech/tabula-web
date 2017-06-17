@@ -60,8 +60,7 @@ class SiteHeader extends Component {
   }
 
   render() {
-    const { browser } = this.props;
-    console.log('details: ', browser.lessThan);
+    // const { browser } = this.props;
 
     // let content;
 
