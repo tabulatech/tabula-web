@@ -28,8 +28,8 @@
   ],
   "main": "bin/server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production NODE_PATH=src PORT=8080 node ./bin/server.js",
-    "build": "better-npm-run build",
+    "start": "node ./bin/server.js",
+    "build": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
     "postinstall": "npm run build",
     "lint": "eslint -c .eslintrc src",
     "start-dev": "cross-env NODE_ENV=development NODE_PATH=src PORT=3000 node ./bin/server.js",
