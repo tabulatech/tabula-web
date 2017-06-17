@@ -28,14 +28,15 @@
   ],
   "main": "bin/server.js",
   "scripts": {
+    "prestart": "npm run build",
     "start": "node ./bin/server.js",
+    "start:prod": "npm run build && NODE_PATH=\"./src\" NODE_ENV=\"production\" PORT=\"8080\" node ./bin/server.js",
+    "start:dev": "DEBUG=*,-express:*,-babel NODE_PATH=\"./src\" NODE_ENV=\"development\" node ./bin/server.js",
+    "lint": "node ./node_modules/eslint/bin/eslint.js -c .eslintrc src",
     "build": "node ./node_modules/webpack/bin/webpack.js --verbose --colors --display-error-details --config webpack/prod.config.js",
-    "postinstall": "npm run build",
-    "lint": "eslint -c .eslintrc src",
-    "start-dev": "cross-env NODE_ENV=development NODE_PATH=src PORT=3000 node ./bin/server.js",
-    "watch-client": "better-npm-run watch-client",
-    "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
-    "test": "jest"
+    "webpack": "DEBUG=webpack:* NODE_PATH=\"./src\" babel-node webpack/server.webpack.js",
+    "dev": "parallelshell 'npm run webpack' 'npm run start:dev'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "jest": {
     "globals": {
